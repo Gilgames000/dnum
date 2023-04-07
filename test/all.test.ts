@@ -89,7 +89,7 @@ describe("add()", () => {
     expect(add(a1, a2, result[1])).toEqual(result);
     expect(add(a2, a1, result[1])).toEqual(result);
     expect(add(a1, 12.3456, result[1])).toEqual(result);
-    expect(add(12.3456, 14.48)).toEqual([268256n, 4]);
+    expect(add(12.3456, 14.48)).toEqual([26825600000000000000n, 18]);
     expect(add(12.3456, 14.48, 4)).toEqual([268256n, 4]);
     expect(add(12.3456, 14.48, 3)).toEqual([26826n, 3]);
   });
@@ -136,7 +136,7 @@ describe("subtract()", () => {
     const a2 = [123456n, 4] as const;
     expect(subtract(a1, a2, 2)).toEqual([122221n, 2]);
     expect(subtract(a2, a1, 2)).toEqual([-122221n, 2]);
-    expect(subtract(16.34, 14.44548)).toEqual([189452n, 5]);
+    expect(subtract(16.34, 14.44548)).toEqual([1894520000000000000n, 18]);
     expect(subtract(16.34, 14.44548, 5)).toEqual([189452n, 5]);
     expect(subtract(16.34, 14.44548, 0)).toEqual([2n, 0]);
   });
@@ -180,7 +180,7 @@ describe("multiply()", () => {
     const result = [1524138n, 2] as const;
     expect(multiply(a1, a2, result[1])).toEqual(result);
     expect(multiply(a2, a1, result[1])).toEqual(result);
-    expect(multiply(16.34, 14.4454)).toEqual([2360378n, 4]);
+    expect(multiply(16.34, 14.4454)).toEqual([236037836000000000000n, 18]);
     expect(multiply(16.34, 14.4454, 3)).toEqual([236038n, 3]);
   });
   it("multiplies negative values", () => {
@@ -231,7 +231,7 @@ describe("divide()", () => {
       5,
     ]);
     expect(divide(8, 2, 8)).toEqual([400000000n, 8]);
-    expect(divide(16.342, 14.43)).toEqual([1133n, 3]);
+    expect(divide(16.342, 14.43)).toEqual([1132501732501732502n, 18]);
   });
   it("throws if decimals are negative", () => {
     expect(() => divide([1n, -1], [1n, 1], 1)).toThrowError(
@@ -262,10 +262,10 @@ describe("divide()", () => {
 
 describe("remainder()", () => {
   it("works", () => {
-    expect(remainder(10, 7)).toEqual([3n, 0]);
-    expect(remainder(-10, 7)).toEqual([-3n, 0]);
-    expect(remainder(10, -7)).toEqual([3n, 0]);
-    expect(remainder(-10, -7)).toEqual([-3n, 0]);
+    expect(remainder(10, 7)).toEqual([3000000000000000000n, 18]);
+    expect(remainder(-10, 7)).toEqual([-3000000000000000000n, 18]);
+    expect(remainder(10, -7)).toEqual([3000000000000000000n, 18]);
+    expect(remainder(-10, -7)).toEqual([-3000000000000000000n, 18]);
     expect(remainder(10, 7, 40)).toEqual([
       30000000000000000000000000000000000000000n,
       40,

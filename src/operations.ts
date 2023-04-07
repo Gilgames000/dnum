@@ -153,6 +153,8 @@ function normalizePairAndDecimals(
   num2: Numberish,
   decimals?: number,
 ) {
+  if (!decimals) decimals = 18;
+
   const num1_ = from(num1);
   const num2_ = from(num2);
 
