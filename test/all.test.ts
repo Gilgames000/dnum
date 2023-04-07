@@ -12,8 +12,10 @@ import {
   from,
   fromJSON,
   greaterThan,
+  greaterThanOrEqual,
   isDnum,
   lessThan,
+  lessThanOrEqual,
   multiply,
   remainder,
   round,
@@ -713,6 +715,46 @@ describe("equal()", () => {
     ).toBe(false);
     expect(
       equal([123000000000000000000n, 18], 123),
+    ).toBe(true);
+  });
+});
+
+describe("greaterThanOrEqual()", () => {
+  it("works", () => {
+    expect(
+      greaterThanOrEqual([123456789000000000001n, 18], [123456789000000000001n, 18]),
+    ).toBe(true);
+    expect(
+      greaterThanOrEqual([123456789000000000001n, 18], [123456789000000000000n, 18]),
+    ).toBe(true);
+    expect(
+      greaterThanOrEqual([123456789000000000000n, 18], [123456789000000000001n, 18]),
+    ).toBe(false);
+    expect(
+      greaterThanOrEqual([123456789000000000000n, 18], 123),
+    ).toBe(true);
+    expect(
+      greaterThanOrEqual([123456789000000000000n, 18], 124),
+    ).toBe(false);
+  });
+});
+
+describe("lessThanOrEqual()", () => {
+  it("works", () => {
+    expect(
+      lessThanOrEqual([123456789000000000001n, 18], [123456789000000000001n, 18]),
+    ).toBe(true);
+    expect(
+      lessThanOrEqual([123456789000000000001n, 18], [123456789000000000000n, 18]),
+    ).toBe(false);
+    expect(
+      lessThanOrEqual([123456789000000000000n, 18], [123456789000000000001n, 18]),
+    ).toBe(true);
+    expect(
+      lessThanOrEqual([123456789000000000000n, 18], 123),
+    ).toBe(false);
+    expect(
+      lessThanOrEqual([123456789000000000000n, 18], 124),
     ).toBe(true);
   });
 });

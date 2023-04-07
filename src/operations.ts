@@ -94,6 +94,16 @@ export function lessThan(num1: Numberish, num2: Numberish): boolean {
   return num1_[0] < num2_[0];
 }
 
+export function greaterThanOrEqual(num1: Numberish, num2: Numberish): boolean {
+  const [num1_, num2_] = normalizePairAndDecimals(num1, num2);
+  return num1_[0] >= num2_[0];
+}
+
+export function lessThanOrEqual(num1: Numberish, num2: Numberish): boolean {
+    const [num1_, num2_] = normalizePairAndDecimals(num1, num2);
+    return num1_[0] <= num2_[0];
+}
+
 export function abs(num: Numberish, decimals?: Decimals): Dnum {
   const [valueIn, decimalsIn] = from(num);
   if (decimals === undefined) { decimals = decimalsIn; }
