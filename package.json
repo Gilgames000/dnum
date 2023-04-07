@@ -15,7 +15,8 @@
     "preview": "vite preview",
     "test": "vitest",
     "lint": "eslint ./src",
-    "coverage": "vitest run --coverage"
+    "coverage": "vitest run --coverage",
+    "prepare": "vite build"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "5.52.0",
